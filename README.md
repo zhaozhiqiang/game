@@ -1,2 +1,2 @@
-# game-2048
-A terminal game 2048
+There are some terminal games:
+    2048
