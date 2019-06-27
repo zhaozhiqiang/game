@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+
+import logging
+import table
+
+from pynput.keyboard import Key, Listener
+from pynput import keyboard, mouse
+
+
+logging.basicConfig(level=logging.DEBUG,
+                    filename='2048.log',
+                    filemode='w',
+                    format='%(message)s')
+
+
+def on_press(key):
+    if Key.up == key:
+        logging.debug('\n上')
+        table.vertical(1)
+    elif Key.down == key:
+        logging.debug('\n下')
+        table.vertical(-1)
+    elif Key.left == key:
+        logging.debug('\n左')
+        table.horizontal(1)
+    elif Key.right == key:
+        logging.debug('\n右')
+        table.horizontal(-1)
+    else:
+        table.game_over(False)
+
+    # 表格有变动则增加数字
+    if table.get_table_changed():
+        table.new_num()
+        table.set_table_changed(False)
+
+    table.show_table()
+    table.check()
+
+
+table.new_num()
+table.new_num()
+table.show_table()
+
+
+with Listener(on_press=on_press) as listener:
+    listener.join()
