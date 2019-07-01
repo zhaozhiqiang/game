@@ -1,3 +1,3 @@
-There are some terminal games:
+# There are some terminal games
 
     2048
