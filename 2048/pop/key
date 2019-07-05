@@ -4,7 +4,6 @@ import logging
 import table
 
 from pynput.keyboard import Key, Listener
-from pynput import keyboard, mouse
 
 
 logging.basicConfig(level=logging.DEBUG,
