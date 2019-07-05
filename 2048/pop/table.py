@@ -1,6 +1,7 @@
 import os
 import random
 import logging
+import subprocess
 
 GOAL = 2048
 MAX_INDEX_IN_LINE = 3
@@ -30,6 +31,7 @@ def game_over(success):
     else:
         print('game over😭')
 
+    os.system('./clean.sh')
     exit()
 
 
